@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סדנת הפוסטר | GIMP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Assistant', sans-serif; background: #F6F4FD; color: #1B1B2F; }
+  .display { font-family: 'Rubik', sans-serif; }
+  .step-card { transition: transform .2s ease, box-shadow .2s ease; }
+  .step-check:checked ~ .step-body { opacity: .55; }
+  .step-check:checked ~ .step-body .step-num { background: #14B886 !important; }
+  .timeline-line { background: linear-gradient(to bottom, #FB7185, #FBBF24, #2DD4BF, #6366F1, #D946EF, #34D399); width: 4px; }
+</style>
+</head>
+<body class="min-h-screen pb-20">
+
+  <!-- כפתור צף משולב: החלונית הסגולה + תמונת הפרופיל של טוביה מעליה -->
+  <a href="https://gemini.google.com/gem/1VUh9dBsCdPrPcJ4UfIMYNUekJGU7n1Zp?usp=sharing" target="_blank" rel="noopener noreferrer"
+     style="z-index: 999999 !important;"
+     class="group fixed bottom-6 left-6 inline-flex items-center justify-center p-0.5 overflow-visible text-sm font-bold text-stone-900 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 hover:text-white transition-all duration-300 shadow-2xl transform hover:scale-105">
+     
+     <span class="relative pl-7 pr-16 py-4 transition-all ease-in duration-75 bg-white rounded-xl group-hover:bg-opacity-0 text-stone-900 group-hover:text-white flex items-center gap-3 shadow-sm font-black text-base">
+       
+       <!-- תמונת העיגול של טוביה - מולבשת בצד ימין/שמאל של החלונית ובולטת החוצה -->
+       <span class="absolute -right-6 top-1/2 -translate-y-1/2 block w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-2xl border-4 border-white z-10 transition duration-300 transform group-hover:scale-110">
+          <img src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="טוביה הבוט" class="w-full h-full object-cover">
+       </span>
+
+       <!-- הטקסט המעוצב של טוביה -->
+       <span class="text-right leading-tight block mr-4">
+         <span class="block text-stone-900 group-hover:text-white transition-colors">שוחח עם טוביה הבוט של סהר</span>
+         <span class="block text-[11px] font-semibold opacity-75 group-hover:opacity-90 text-stone-600 group-hover:text-purple-200 transition-colors">שיחת AI מתקדמת ב-Gemini Gems</span>
+       </span>
+       
+     </span>
+  </a>
+
+  <header class="max-w-4xl mx-auto px-5 pt-10 pb-6">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <span class="display font-black text-sm px-4 py-1.5 rounded-full bg-white shadow-sm border border-indigo-100 text-indigo-600">מגמת יישומים גרפיים · סדנת GIMP</span>
+      <a href="https://gemini.google.com/gem/1VUh9dBsCdPrPcJ4UfIMYNUekJGU7n1Zp?usp=sharing" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-fuchsia-600 hover:from-indigo-500 hover:to-fuchsia-500 text-white font-black px-5 py-2.5 rounded-full shadow-lg transition-all transform hover:scale-105">
+        <span>🤖</span><span>שאל את טוביה</span>
+      </a>
+    </div>
+    <h1 class="display font-black text-4xl sm:text-5xl leading-tight mb-4">סדנת <span class="text-indigo-600">הפוסטר</span> ב-<span dir="ltr" class="text-fuchsia-600">GIMP</span></h1>
+    <p class="text-lg text-stone-700 font-semibold max-w-2xl">
+      בסדנה הזו תבנה פוסטר מלא - מקנבס ריק ועד קובץ מוכן לייצוא - בעזרת <span dir="ltr">GIMP</span>, תוכנת עריכה חינמית וחזקה. עבור על התחנות אחת-אחת, ותסמן V כשסיימת כל שלב. תקוע? טוביה תמיד זמין בכפתור למטה.
+    </p>
+
+    <a href="https://youtu.be/LX-S1CX1HUI?si=1OA0pmg0mJHSGlmy" target="_blank" rel="noopener"
+       class="mt-6 flex items-center gap-4 bg-white rounded-2xl p-5 shadow-md border-2 border-red-200 hover:border-red-400 transition-colors">
+      <span class="shrink-0 w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-md">▶</span>
+      <span>
+        <span class="display font-black text-lg block text-red-600">צפה בסרטון שממחיש את כל השלבים</span>
+        <span class="text-sm text-stone-600 font-semibold">לפני שמתחילים, או תוך כדי עבודה - כדאי לצפות בהדגמה מלאה של התהליך ב-YouTube.</span>
+      </span>
+    </a>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-5">
+    <div class="relative">
+      <div class="timeline-line absolute right-[27px] top-2 bottom-2 rounded-full hidden sm:block"></div>
+
+      <div class="space-y-6" id="steps">
+
+        <div class="step-card relative sm:pr-16">
+          <input type="checkbox" class="step-check hidden peer" data-step="1" id="st1">
+          <label for="st1" class="step-num hidden sm:flex absolute right-0 top-4 w-14 h-14 rounded-full bg-rose-500 text-white items-center justify-center font-black display text-xl shadow-lg cursor-pointer z-10 transition-colors">1</label>
+          <div class="step-body bg-white rounded-3xl p-6 sm:p-7 shadow-md border-r-8 border-rose-400 sm:border-r-0">
+            <div class="flex items-center gap-3 mb-2 sm:hidden">
+              <label for="st1" class="step-num w-9 h-9 rounded-full bg-rose-500 text-white flex items-center justify-center font-black display cursor-pointer transition-colors">1</label>
+              <span class="display font-black text-rose-500 text-sm">פתיחת קנבס</span>
+            </div>
+            <h2 class="display font-black text-xl mb-2 hidden sm:block">פתיחת קנבס חדש</h2>
+            <ol class="list-decimal pr-5 space-y-1.5 text-stone-700 font-semibold text-sm leading-relaxed">
+              <li>פתח את <code dir="ltr" class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">GIMP</code> ובחר <code class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">File</code> ← <code class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">New</code>.</li>
+              <li>הגדר גודל קנבס לפוסטר, למשל <code dir="ltr" class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">2480×3508px</code> (גודל A4 להדפסה).</li>
+              <li>ודא ש-<code class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">Resolution</code> מוגדר על <code dir="ltr" class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">300 DPI</code> אם מתכננים להדפיס.</li>
+              <li>שמור מייד את הקובץ בפורמט <code dir="ltr" class="bg-rose-50 px-1.5 py-0.5 rounded text-rose-600">.xcf</code> (הפורמט המקורי של GIMP), כדי לשמר שכבות.</li>
+            </ol>
+            <label for="st1" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-rose-500 cursor-pointer">
+              <input type="checkbox" class="hidden"> ✔ סמן שלב זה כהושלם
+            </label>
+          </div>
+        </div>
+
+        <div class="step-card relative sm:pr-16">
+          <input type="checkbox" class="step-check hidden peer" data-step="2" id="st2">
+          <label for="st2" class="step-num hidden sm:flex absolute right-0 top-4 w-14 h-14 rounded-full bg-amber-400 text-white items-center justify-center font-black display text-xl shadow-lg cursor-pointer z-10 transition-colors">2</label>
+          <div class="step-body bg-white rounded-3xl p-6 sm:p-7 shadow-md border-r-8 border-amber-400 sm:border-r-0">
+            <div class="flex items-center gap-3 mb-2 sm:hidden">
+              <label for="st2" class="step-num w-9 h-9 rounded-full bg-amber-400 text-white flex items-center justify-center font-black display cursor-pointer transition-colors">2</label>
+              <span class="display font-black text-amber-500 text-sm">בניית הרקע</span>
+            </div>
+            <h2 class="display font-black text-xl mb-2 hidden sm:block">בניית הרקע</h2>
+            <ol class="list-decimal pr-5 space-y-1.5 text-stone-700 font-semibold text-sm leading-relaxed">
+              <li>צור שכבה חדשה (<code class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Layer</code> ← <code class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">New Layer</code>) וקרא לה <code dir="ltr" class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Background</code>.</li>
+              <li>בחר צבע אחיד עם כלי <code class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Bucket Fill</code>, או צור מעבר צבעים (<code dir="ltr" class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Gradient</code>) עם כלי <code class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Blend Tool</code>.</li>
+              <li>אפשר גם לייבא תמונה כרקע: <code class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">File</code> ← <code class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Open as Layers</code>.</li>
+              <li>ודא שהרקע נמצא בשכבה הכי תחתונה בחלונית <code dir="ltr" class="bg-amber-50 px-1.5 py-0.5 rounded text-amber-600">Layers</code>.</li>
+            </ol>
+            <label for="st2" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-amber-500 cursor-pointer">
+              <input type="checkbox" class="hidden"> ✔ סמן שלב זה כהושלם
+            </label>
+          </div>
+        </div>
+
+        <div class="step-card relative sm:pr-16">
+          <input type="checkbox" class="step-check hidden peer" data-step="3" id="st3">
+          <label for="st3" class="step-num hidden sm:flex absolute right-0 top-4 w-14 h-14 rounded-full bg-teal-500 text-white items-center justify-center font-black display text-xl shadow-lg cursor-pointer z-10 transition-colors">3</label>
+          <div class="step-body bg-white rounded-3xl p-6 sm:p-7 shadow-md border-r-8 border-teal-400 sm:border-r-0">
+            <div class="flex items-center gap-3 mb-2 sm:hidden">
+              <label for="st3" class="step-num w-9 h-9 rounded-full bg-teal-500 text-white flex items-center justify-center font-black display cursor-pointer transition-colors">3</label>
+              <span class="display font-black text-teal-500 text-sm">כותרת וטקסט</span>
+            </div>
+            <h2 class="display font-black text-xl mb-2 hidden sm:block">הוספת כותרת וטקסט</h2>
+            <ol class="list-decimal pr-5 space-y-1.5 text-stone-700 font-semibold text-sm leading-relaxed">
+              <li>בחר את כלי <code class="bg-teal-50 px-1.5 py-0.5 rounded text-teal-600">Text Tool</code> (<code dir="ltr" class="bg-teal-50 px-1.5 py-0.5 rounded text-teal-600">T</code>) ולחץ על הקנבס להוספת כותרת ראשית.</li>
+              <li>בחר גופן ברור וקריא לכותרת, וגודל גדול משמעותית מכל טקסט אחר בפוסטר.</li>
+              <li>הוסף שכבת טקסט נוספת לפרטים משניים (תאריך, מיקום, קרדיט וכו').</li>
+              <li>שמור על ניגודיות טובה בין צבע הטקסט לרקע - אם קשה לקרוא, שקול להוסיף מאחורי הטקסט תיבה שקופה למחצה.</li>
+            </ol>
+            <label for="st3" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-teal-500 cursor-pointer">
+              <input type="checkbox" class="hidden"> ✔ סמן שלב זה כהושלם
+            </label>
+          </div>
+        </div>
+
+        <div class="step-card relative sm:pr-16">
+          <input type="checkbox" class="step-check hidden peer" data-step="4" id="st4">
+          <label for="st4" class="step-num hidden sm:flex absolute right-0 top-4 w-14 h-14 rounded-full bg-indigo-500 text-white items-center justify-center font-black display text-xl shadow-lg cursor-pointer z-10 transition-colors">4</label>
+          <div class="step-body bg-white rounded-3xl p-6 sm:p-7 shadow-md border-r-8 border-indigo-400 sm:border-r-0">
+            <div class="flex items-center gap-3 mb-2 sm:hidden">
+              <label for="st4" class="step-num w-9 h-9 rounded-full bg-indigo-500 text-white flex items-center justify-center font-black display cursor-pointer transition-colors">4</label>
+              <span class="display font-black text-indigo-500 text-sm">אלמנטים גרפיים</span>
+            </div>
+            <h2 class="display font-black text-xl mb-2 hidden sm:block">הוספת אלמנטים גרפיים</h2>
+            <ol class="list-decimal pr-5 space-y-1.5 text-stone-700 font-semibold text-sm leading-relaxed">
+              <li>הוסף תמונה, איור או צורה מרכזית עם <code class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">File</code> ← <code class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Open as Layers</code>, או צייר צורות עם כלי <code dir="ltr" class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Paths</code> / <code class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Shapes</code>.</li>
+              <li>אם התמונה כוללת רקע לא רצוי - השתמש בכלי <code class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Select by Color</code> או <code class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Fuzzy Select</code> להסרתו, או ב-<code class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Layer Mask</code> לשקיפות עדינה.</li>
+              <li>סדר את השכבות בחלונית <code dir="ltr" class="bg-indigo-50 px-1.5 py-0.5 rounded text-indigo-600">Layers</code> כך שהכותרת תמיד תישאר קריאה מעל שאר האלמנטים.</li>
+            </ol>
+            <label for="st4" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-indigo-500 cursor-pointer">
+              <input type="checkbox" class="hidden"> ✔ סמן שלב זה כהושלם
+            </label>
+          </div>
+        </div>
+
+        <div class="step-card relative sm:pr-16">
+          <input type="checkbox" class="step-check hidden peer" data-step="5" id="st5">
+          <label for="st5" class="step-num hidden sm:flex absolute right-0 top-4 w-14 h-14 rounded-full bg-fuchsia-500 text-white items-center justify-center font-black display text-xl shadow-lg cursor-pointer z-10 transition-colors">5</label>
+          <div class="step-body bg-white rounded-3xl p-6 sm:p-7 shadow-md border-r-8 border-fuchsia-400 sm:border-r-0">
+            <div class="flex items-center gap-3 mb-2 sm:hidden">
+              <label for="st5" class="step-num w-9 h-9 rounded-full bg-fuchsia-500 text-white flex items-center justify-center font-black display cursor-pointer transition-colors">5</label>
+              <span class="display font-black text-fuchsia-500 text-sm">אפקטים וגימור</span>
+            </div>
+            <h2 class="display font-black text-xl mb-2 hidden sm:block">אפקטים וגימור</h2>
+            <ol class="list-decimal pr-5 space-y-1.5 text-stone-700 font-semibold text-sm leading-relaxed">
+              <li>נסה פילטר עדין מתפריט <code dir="ltr" class="bg-fuchsia-50 px-1.5 py-0.5 rounded text-fuchsia-600">Filters</code> - למשל <code class="bg-fuchsia-50 px-1.5 py-0.5 rounded text-fuchsia-600">Light and Shadow</code> ← <code dir="ltr" class="bg-fuchsia-50 px-1.5 py-0.5 rounded text-fuchsia-600">Drop Shadow</code> לטקסט או לצורה מרכזית.</li>
+              <li>שחק עם <code class="bg-fuchsia-50 px-1.5 py-0.5 rounded text-fuchsia-600">Layer Modes</code> (למשל <code dir="ltr" class="bg-fuchsia-50 px-1.5 py-0.5 rounded text-fuchsia-600">Multiply</code> / <code dir="ltr" class="bg-fuchsia-50 px-1.5 py-0.5 rounded text-fuchsia-600">Screen</code>) לשילוב מעניין בין שכבות.</li>
+              <li>עבור על כל השכבות ווודא ניגודיות, יישור, ואיזון כללי - התרחק מהמסך רגע ותסתכל על הפוסטר בעין "טרייה".</li>
+            </ol>
+            <label for="st5" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-fuchsia-500 cursor-pointer">
+              <input type="checkbox" class="hidden"> ✔ סמן שלב זה כהושלם
+            </label>
+          </div>
+        </div>
+
+        <div class="step-card relative sm:pr-16">
+          <input type="checkbox" class="step-check hidden peer" data-step="6" id="st6">
+          <label for="st6" class="step-num hidden sm:flex absolute right-0 top-4 w-14 h-14 rounded-full bg-emerald-500 text-white items-center justify-center font-black display text-xl shadow-lg cursor-pointer z-10 transition-colors">6</label>
+          <div class="step-body bg-white rounded-3xl p-6 sm:p-7 shadow-md border-r-8 border-emerald-400 sm:border-r-0">
+            <div class="flex items-center gap-3 mb-2 sm:hidden">
+              <label for="st6" class="step-num w-9 h-9 rounded-full bg-emerald-500 text-white flex items-center justify-center font-black display cursor-pointer transition-colors">6</label>
+              <span class="display font-black text-emerald-600 text-sm">ייצוא הפוסטר</span>
+            </div>
+            <h2 class="display font-black text-xl mb-2 hidden sm:block">ייצוא הפוסטר הסופי</h2>
+            <ol class="list-decimal pr-5 space-y-1.5 text-stone-700 font-semibold text-sm leading-relaxed">
+              <li>שמור קודם גרסת עבודה: <code dir="ltr" class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">File</code> ← <code class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">Save</code> (שומר <code dir="ltr" class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">.xcf</code> עם כל השכבות).</li>
+              <li>לייצוא סופי: <code dir="ltr" class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">File</code> ← <code class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">Export As</code> ← בחר <code dir="ltr" class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">.png</code> (איכות מלאה) או <code dir="ltr" class="bg-emerald-50 px-1.5 py-0.5 rounded text-emerald-600">.jpg</code> (קובץ קטן יותר).</li>
+              <li>צלם מסך של תהליך העבודה (השכבות, הכלים ששימשו) - תזדקק לזה בהמשך למסמך התיעוד של מטלת הביצוע.</li>
+            </ol>
+            <label for="st6" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-emerald-600 cursor-pointer">
+              <input type="checkbox" class="hidden"> ✔ סמן שלב זה כהושלם
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="done-msg" class="hidden mt-8 bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white rounded-2xl p-6 text-center shadow-lg">
+      <p class="display font-black text-xl">🎉 הפוסטר שלך מוכן!</p>
+      <p class="font-semibold mt-1">עברת את כל 6 השלבים. אם משהו לא נראה מושלם - זה בסדר גמור, אפשר תמיד לחזור אחורה ולשפר.</p>
+    </div>
+  </main>
+
+  <footer class="max-w-4xl mx-auto px-5 mt-14 text-center text-stone-500 text-sm font-semibold">
+    נתקעת בכלי כלשהו ב-GIMP? טוביה תמיד זמין בכפתור הצף למטה. 🤖
+  </footer>
+
+<script>
+  const checks = document.querySelectorAll('.step-check');
+  const doneMsg = document.getElementById('done-msg');
+  const STORAGE_KEY = 'gimp_poster_progress';
+
+  function updateDone() {
+    const allChecked = [...checks].every(c => c.checked);
+    doneMsg.classList.toggle('hidden', !allChecked);
+  }
+  function save() {
+    const state = {};
+    checks.forEach(c => state[c.dataset.step] = c.checked);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+  function load() {
+    try {
+      const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      checks.forEach(c => { c.checked = !!state[c.dataset.step]; });
+    } catch (e) {}
+  }
+  checks.forEach(c => c.addEventListener('change', () => { save(); updateDone(); }));
+  load();
+  updateDone();
+</script>
+</body>
+</html>
